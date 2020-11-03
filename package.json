@@ -1,0 +1,19 @@
+{
+  "name": "crestron-cip",
+  "version": "1.0.0",
+  "description": "Node js module for frestron CIP interconnection",
+  "main": "cip.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artnavsegda/crestron-cip.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/artnavsegda/crestron-cip/issues"
+  },
+  "homepage": "https://github.com/artnavsegda/crestron-cip#readme"
+}

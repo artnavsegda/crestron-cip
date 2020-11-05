@@ -145,8 +145,12 @@ exports.connect = (params, callback) => {
             dataView.setUint16(7, join-1, true);
             client.write(djoin);
         },
-        aget: (join) => analog[join],
-        dget: (join) => digital[join],
+        aget: (join) => {
+            return analog[join];
+        },
+        dget: (join) => {
+            return digital[join];
+        },
         subscribe: (callback) => {
             cipEvents.on("data", (data) => {
                 callback(data);

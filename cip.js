@@ -17,7 +17,7 @@ exports.connect = (params, callback) => {
             if (client.readyState == "open")
                 client.write("\x0D\x00\x02\x00\x00");
             else
-                clearIntercal(heartbeat);
+                clearInterval(heartbeat);
         },5000);
     });
     

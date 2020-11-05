@@ -79,6 +79,10 @@ exports.connect = (params, callback) => {
         console.log('disconnected from server');
     });
 
+    client.on('error', () => {
+        console.log('socket error');
+    });
+
     return {
         aset: (join,value) =>
         {

@@ -42,19 +42,19 @@ exports.connect = (params, callback) => {
     
     client.on('data', (data) => {
         let index = 0;
-        console.log("data length:" + data.length);
-        console.log(data.toString('hex'));
+        //console.log("data length:" + data.length);
+        //console.log(data.toString('hex'));
     
         while (index < data.length)
         {
             let payloadType = data[index];
-            console.log("type: 0x" + payloadType.toString(16));
+            //console.log("type: 0x" + payloadType.toString(16));
     
             let payloadLength = data[index + 2]
-            console.log("payloadLength: " + payloadLength);
+            //console.log("payloadLength: " + payloadLength);
     
             let payload = data.slice(index+3, index+3+payloadLength);
-            console.log("payloadData: " + payload.toString('hex'));
+            //console.log("payloadData: " + payload.toString('hex'));
     
             switch (payloadType)
             {
@@ -95,7 +95,7 @@ exports.connect = (params, callback) => {
                 break;
                 case 0x0D:
                 case 0x0E:
-                    console.log("heartbeat");
+                    //console.log("heartbeat");
                 break;
             }
             index = index + payloadLength + 3;

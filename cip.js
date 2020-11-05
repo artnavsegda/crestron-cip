@@ -63,8 +63,11 @@ exports.connect = (params, callback) => {
                     client.write("\x01\x00\x0b\x00\x00\x00\x00\x00" + params.ipid + "\x40\xff\xff\xf1\x01");
                 break;
                 case 0x02:
-                    console.log("registration ok");
-                    client.write("\x05\x00\x05\x00\x00\x02\x03\x00");
+                    if (payloadLength == 4 && payload == "\x00\x00\x00\x1f")
+                    {
+                        console.log("registration ok");
+                        client.write("\x05\x00\x05\x00\x00\x02\x03\x00");
+                    }
                 break;
                 case 0x05:
                     console.log("data");

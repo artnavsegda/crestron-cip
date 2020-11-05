@@ -106,6 +106,8 @@ exports.connect = (params, callback) => {
         launchIntervalConnect();
     });
 
+    connect();
+
     return {
         aset: (join,value) =>
         {

@@ -60,10 +60,10 @@ exports.connect = (params, callback) => {
             {
                 case 0x0f:
                     console.log("Client registration request");
-                    client.write("\x01\x00\x0b\x00\x00\x00\x00\x00" + params.ipid + "\x40\xff\xff\xf1\x01");
+                    client.write("\x01\x00\x0b\x00\x00\x00\x00\x00\x03\x40\xff\xff\xf1\x01");
                 break;
                 case 0x02:
-                    if (payloadLength == 4 && payload == "\x00\x00\x00\x1f")
+                    if (payloadLength == 4 && payload.toString('hex') == "0000200f")
                     {
                         console.log("registration ok");
                         client.write("\x05\x00\x05\x00\x00\x02\x03\x00");

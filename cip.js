@@ -13,8 +13,11 @@ exports.connect = (params, callback) => {
 
     client = net.createConnection({ port: 41794, host: params.host}, () => {
         callback();
-        setInterval(()=>{
-            client.write("\x0D\x00\x02\x00\x00");
+        let heartbeat = setInterval(()=>{
+            if (client.readyState == "open")
+                client.write("\x0D\x00\x02\x00\x00");
+            else
+                clearIntercal(heartbeat);
         },5000);
     });
     

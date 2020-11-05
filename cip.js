@@ -75,21 +75,21 @@ exports.connect = (params, callback) => {
                     }
                 break;
                 case 0x05:
-                    console.log("data");
+                    //console.log("data");
                     switch(payload[3])
                     {
                         case 0x0:
-                            console.log("digital join " + ((((payload[5] & 0x7F) << 8) | payload[4]) + 1) + " state " + (((payload[5] & 0x80) >> 7) ^ 0x01));
+                            //console.log("digital join " + ((((payload[5] & 0x7F) << 8) | payload[4]) + 1) + " state " + (((payload[5] & 0x80) >> 7) ^ 0x01));
                             digital[((((payload[5] & 0x7F) << 8) | payload[4]) + 1)] = (((payload[5] & 0x80) >> 7) ^ 0x01);
                             cipEvents.emit("data", {type: "digital", join: (((payload[5] & 0x7F) << 8) | payload[4]) + 1, value: (((payload[5] & 0x80) >> 7) ^ 0x01)});
                         break;
                         case 0x14:
-                            console.log("analog join " + (((payload[4] << 8) | payload[5]) + 1) + " value " + ((payload[6] << 8) + payload[7]));
+                            //console.log("analog join " + (((payload[4] << 8) | payload[5]) + 1) + " value " + ((payload[6] << 8) + payload[7]));
                             analog[(((payload[4] << 8) | payload[5]) + 1)] = ((payload[6] << 8) + payload[7]);
                             cipEvents.emit("data", {type: "analog", join: ((payload[4] << 8) | payload[5]) + 1, value: (payload[6] << 8) + payload[7]});
                         break;
                         case 0x03:
-                            console.log("update request");
+                            //console.log("update request");
                         break;
                     }
                 break;

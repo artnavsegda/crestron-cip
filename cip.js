@@ -9,9 +9,28 @@ var digital = new Array(10000);
 var analog = new Array(10000);
 
 exports.connect = (params, callback) => {
+    const client = new net.Socket();
+    let intervalConnect;
+
     console.log("connecting to " + params.host);
 
-    client = net.createConnection({ port: 41794, host: params.host}, () => {
+    function connect() {
+        client.connect({ port: 41794, host: params.host});
+    };
+
+    function launchIntervalConnect() {
+        if(false != intervalConnect) return
+        intervalConnect = setInterval(connect, 5000)
+    }
+
+    function clearIntervalConnect() {
+        if(false == intervalConnect) return
+        clearInterval(intervalConnect)
+        intervalConnect = false
+    }
+
+    client.on('connect', () => {
+        clearIntervalConnect();
         callback();
         let heartbeat = setInterval(()=>{
             if (client.readyState == "open")
@@ -77,10 +96,14 @@ exports.connect = (params, callback) => {
     
     client.on('end', () => {
         console.log('disconnected from server');
+        launchIntervalConnect();
     });
+
+    client.on('close', launchIntervalConnect);
 
     client.on('error', () => {
         console.log('socket error');
+        launchIntervalConnect();
     });
 
     return {

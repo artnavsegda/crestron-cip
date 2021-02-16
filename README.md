@@ -18,10 +18,10 @@ const  cip  = cipclient.connect({host:  "192.168.0.100",  ipid:  "\x03"},  ()  =
   cip.dset(101, 1) // set digital value
   console.log("digital value: " + cip.dget(101))
   cip.aset(102, 25163) //set analog value
-  console.log("analog value: " +  cip.aget(102));
+  console.log("analog value: " +  cip.aget(102))
 })
 
 cip.subscribe((data)  =>  {
   console.log("type:"  +  data.type  +  " join:"  +  data.join  +  " value:"  +  data.value)
-});
+})
 ```

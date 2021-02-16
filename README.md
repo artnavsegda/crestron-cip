@@ -1,2 +1,2 @@
 # crestron-cip
-Node js module for frestron CIP interconnection
+Node js module for Crestron CIP interconnection

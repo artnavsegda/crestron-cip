@@ -1,7 +1,7 @@
 {
   "name": "crestron-cip",
   "version": "1.0.0",
-  "description": "Node js module for frestron CIP interconnection",
+  "description": "Node js module for Crestron CIP interconnection",
   "main": "cip.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

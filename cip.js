@@ -127,7 +127,7 @@ exports.connect = (params, callback) => {
         },
         dset: (join,value) =>
         {
-            let djoin = new Uint8Array([0x05, 0x00, 0x06, 0x00, 0x00, 0x03, 0x27, 0x00, 0x00]);
+            let djoin = new Uint8Array([0x05, 0x00, 0x06, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00]);
             let dataView = new DataView(djoin.buffer);
 
             if (!value)

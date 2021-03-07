@@ -5,8 +5,10 @@ const cipEvents = new EventEmitter();
 
 let client;
 
-var digital = new Array(10000);
-var analog = new Array(10000);
+let digital = new Array(10000);
+digital.fill(0);
+let analog = new Array(10000);
+analog.fill(0);
 
 exports.connect = (params, callback) => {
     const client = new net.Socket();
